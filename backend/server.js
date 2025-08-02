@@ -4,6 +4,8 @@ import { connectDB } from './config/db.js';
 import foodRouter from './routes/foodRoute.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import userRouter from './routes/userRoute.js';
+import 'dotenv/config'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -31,6 +33,6 @@ app.listen(port,()=>{
 })
 
 app.use('/images', express.static(path.join(__dirname, 'uploads')));
-
+app.use('/api/user',userRouter);
 
 // mongodb+srv://earun:210001@cluster0.fupfepr.mongodb.net/?
